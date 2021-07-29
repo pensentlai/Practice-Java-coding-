@@ -1,0 +1,4 @@
+[SW1]vlan 20  //在已有2层vlan的前提下建立三层vlan
+[SW1-vlan20]quit
+[SW1]interface vlanif 20 //建立三层vlanif
+[SW1-Vlanif20]ip address 192.168.1.254 24 //设置vlanifIP地址 可以达到vlan路由的效果

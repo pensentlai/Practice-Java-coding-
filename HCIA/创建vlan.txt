@@ -1,0 +1,3 @@
+[Huawei]sysname SW1
+[SW1]undo info enable //屏蔽控制台的日志
+[SW1]vlan 10  //vlan就已经创建好了 不过是二层的

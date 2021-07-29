@@ -1,0 +1,7 @@
+[Huawei]interface GigabitEthernet 0/0/1
+[Huawei-GigabitEthernet0/0/1]ip address 192.168.0.1 24
+[Huawei-GigabitEthernet0/0/1]quit 
+[Huawei]quit
+<Huawei>save 
+没有保存的话设备关机之后会自动把命令清楚  所以切记 Cisco的是write
+

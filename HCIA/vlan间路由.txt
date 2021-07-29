@@ -1,0 +1,60 @@
+[Huawei]sysname pc1
+[pc1]
+[pc1]interface g0/0/0
+[pc1-GigabitEthernet0/0/0]
+[pc1-GigabitEthernet0/0/0]ip address 192.168.10.1 24
+[pc1]ip route-static 0.0.0.0 0 192.168.10.254	配置默认路由
+============================================================================
+[Huawei]sysname pc2
+[pc2]
+[pc2]interface g0/0/0
+[pc2-GigabitEthernet0/0/0]
+[pc2-GigabitEthernet0/0/0]ip address 192.168.20.1 24
+[pc2]ip route-static 0.0.0.0 0 192.168.20.254	配置默认路由
+============================================================================
+[Huawei]sysname pc3
+[pc3]
+[pc3]interface g0/0/0
+[pc3-GigabitEthernet0/0/0]
+[pc3-GigabitEthernet0/0/0]ip address 192.168.30.1 24
+[pc3]ip route-static 0.0.0.0 0 192.168.30.254	配置默认路由
+============================================================================
+[Huawei]sysname LSW
+[LSW]
+[LSW]vlan 10
+[LSW-vlan10]quit
+[LSW]vlan 20
+[LSW-vlan20]quit
+[LSW]vlan 30
+[LSW-vlan30]quit	建立vlan10 20 30
+-----------------------------------------------------------------------------
+[LSW]interface Ethernet0/0/1
+[LSW-Ethernet0/0/1]port link-type access 
+[LSW-Ethernet0/0/1]port default vlan 10	将接口改为access模式 然后放入vlan10
+-----------------------------------------------------------------------------
+[LSW]interface Ethernet0/0/2
+[LSW-Ethernet0/0/2]port link-type access 
+[LSW-Ethernet0/0/2]port default vlan 20	将接口改为access模式 然后放入vlan20
+-----------------------------------------------------------------------------
+[LSW]interface Ethernet0/0/3
+[LSW-Ethernet0/0/3]port link-type access 
+[LSW-Ethernet0/0/3]port default vlan 30 将接口改为access模式 然后放入vlan30
+-----------------------------------------------------------------------------
+[LSW-Ethernet0/0/3]interface Ethernet0/0/4
+[LSW-Ethernet0/0/4]port link-type trunk 
+[LSW-Ethernet0/0/4]port trunk allow-pass vlan all 将接口改为trunk模式 然后允许所有vlan通过
+=============================================================================
+[AR]interface GigabitEthernet 0/0/0.10
+[AR-GigabitEthernet0/0/0.10]ip address 192.168.10.254 24
+[AR-GigabitEthernet0/0/0.10]dot1q termination vid 10
+[AR-GigabitEthernet0/0/0.10]arp broadcast enable  配置子接口 封装vid为10的dot1q允许arp询问
+-----------------------------------------------------------------------------
+[AR]interface GigabitEthernet 0/0/0.20
+[AR-GigabitEthernet0/0/0.20]ip address 192.168.20.254 24
+[AR-GigabitEthernet0/0/0.20]dot1q termination vid 20
+[AR-GigabitEthernet0/0/0.20]arp broadcast enable  配置子接口 封装vid为20的dot1q允许arp询问
+-----------------------------------------------------------------------------
+[AR]interface GigabitEthernet 0/0/0.30
+[AR-GigabitEthernet0/0/0.30]ip address 192.168.30.254 24
+[AR-GigabitEthernet0/0/0.30]dot1q termination vid 30
+[AR-GigabitEthernet0/0/0.30]arp broadcast enable 配置子接口 封装vid为30的dot1q允许arp询问

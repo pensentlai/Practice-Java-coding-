@@ -1,0 +1,6 @@
+<Huawei>system-view 
+[Huawei]interface Eth-Trunk 1
+[Huawei]interface GigabitEthernet 0/0/1
+[Huawei-GigabitEthernet0/0/1]eth-trunk 1
+[Huawei]interface GigabitEthernet 0/0/2
+[Huawei-GigabitEthernet0/0/2]eth-trunk 1

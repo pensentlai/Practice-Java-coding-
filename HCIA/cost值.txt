@@ -1,0 +1,5 @@
+[Huawei]ospf
+[Huawei-ospf-1]bandwidth-reference XXXX（更改的变量） 
+公式是100/带宽
+[cisco]router ospf 1
+[cisco]network x.x.x.x x.x.x.x area x

@@ -1,0 +1,2 @@
+[Huawei]display ip routing-table 华为 
+[cisco]show ip route 思科

@@ -1,0 +1,3 @@
+[Huawei]stp mode stp 生成树状态
+[Huawei]stp priority *** 更改设备优先级
+[Huawei-Ethernet0/0/1]stp edged-port enable 配置边缘端口 在带端口模式下

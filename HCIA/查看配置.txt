@@ -1,0 +1,4 @@
+[Huawei]dis current-configuration
+[Huawei]dis current-configuration | include IP routeing
+include =
+[cisco] show run 
